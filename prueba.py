@@ -102,10 +102,16 @@ while running:
                     if icon.position[0] - 5 <= event.pos[0] <= icon.position[0] + 5 and \
                        icon.position[1] - 5 <= event.pos[1] <= icon.position[1] + 5:
                         if icon.color == purple:
-                            subprocess.Popen(["dist\\terminal.exe"])
+                            subprocess.Popen(["python","terminal.py"])
                             break
                         elif icon.color == blue:
-                            subprocess.Popen("dist\\To_doList.exe")
+                            subprocess.Popen(["python","To_doList.py"])
+                            break
+                        elif icon.color == yellow:
+                            subprocess.Popen(["python","temporizador.py"])
+                            break
+                        elif icon.color == red:
+                            subprocess.Popen(["python","filesystem.py"])
                             break
         elif event.type == pygame.MOUSEBUTTONUP and event.button == 1:
             mouse_pressed = False
