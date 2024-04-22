@@ -3,11 +3,11 @@ import subprocess
 import os
 import time
 from PIL import Image, ImageTk, ImageSequence
-import pygame
+# import pygame
 import sys
 
 # Inicializo para le audio
-pygame.mixer.init()
+# pygame.mixer.init()
 # Informacion del usuario
 usuario = "usuario"
 directorio = "/home/usuario"
@@ -145,10 +145,7 @@ def actualizar_display(text):
 def instrucciones():
     output = """
             las instrucciones son:
-            - 1. temporizador (tiempo que deseas que dure en segundos)
-            - 2. clear para limpiar
-            - 3.  parar para detener el temporizador
-            - 4. Puedes usar la mayoria de los comandos de shell, a excepcion de (cd, clear, etc...)
+            - 1. Puedes usar la mayoria de los comandos de shell, a excepcion de (cd, clear, etc...)
 """
     actualizar_display(output)
 
