@@ -21,8 +21,11 @@ red = (255, 0, 0)
 green = (0, 255, 0)
 blue = (0, 0, 255)
 yellow = (255, 255, 0)
-other_green = (65, 176, 110)  # Color personalizado
-purple = (100, 32, 170)  # Color personalizado
+other_green = (65, 176, 110) 
+purple = (100, 32, 170)  
+orange = (255, 165, 0)  
+# pink = (255, 105, 180) 
+# cyan = (0, 255, 255)  
 
 # Definir la clase Icono que representa un bloque de color en la esfera
 class Icon:
@@ -79,7 +82,7 @@ sphere_radius = min(screen_width, screen_height) // 3
 
 # Crear iconos en la esfera con colores únicos
 icon_positions = generate_icon_positions(sphere_radius, 5)
-colors = [red, blue, yellow, purple, other_green]  # Lista de colores disponibles para los iconos
+colors = [red, blue, yellow, purple, orange]  # Lista de colores disponibles para los iconos
 random.shuffle(colors)  # Mezclar los colores para garantizar que no se repitan
 icons = [Icon(colors[i], (pos[0], pos[1])) for i, pos in enumerate(icon_positions)]
 
@@ -102,16 +105,19 @@ while running:
                     if icon.position[0] - 5 <= event.pos[0] <= icon.position[0] + 5 and \
                        icon.position[1] - 5 <= event.pos[1] <= icon.position[1] + 5:
                         if icon.color == purple:
-                            subprocess.Popen(["python3","terminal.py"])
+                            subprocess.Popen(["python","terminal.py"])
                             break
                         elif icon.color == blue:
-                            subprocess.Popen(["python3","To_doList.py"])
+                            subprocess.Popen(["python","To_doList.py"])
                             break
                         elif icon.color == yellow:
-                            subprocess.Popen(["python3","temporizador.py"])
+                            subprocess.Popen(["python","temporizador.py"])
                             break
                         elif icon.color == red:
-                            subprocess.Popen(["python3","filesystem.py"])
+                            subprocess.Popen(["python","filesystem.py"])
+                            break
+                        elif icon.color == orange:
+                            subprocess.Popen(["python", "meditar.py"])
                             break
         elif event.type == pygame.MOUSEBUTTONUP and event.button == 1:
             mouse_pressed = False
